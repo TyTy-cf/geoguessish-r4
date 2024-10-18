@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-public class SecurityControllerRestController {
+public class SecurityRestController {
 
     private UserService userService;
     private JwtAuthenticatorService jwtAuthenticatorService;

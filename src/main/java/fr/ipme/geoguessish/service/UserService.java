@@ -46,14 +46,12 @@ public class UserService implements
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() -> new UsernameNotFoundException("Tu étais l'élu !"));
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Tu étais l'élu !"));
-
+        User user = findByEmail(username);
         return new org.springframework.security.core.userdetails.User(
             user.getEmail(),
             user.getPassword(),
