@@ -15,7 +15,9 @@ public class JsonViews {
     public interface GameList extends GameMinimalView {}
 
     public interface RoundMinimalView {}
-    public interface RoundShow extends RoundMinimalView {}
+    public interface RoundShow extends
+            RoundMinimalView,
+            CoordinateShow {}
 
     public interface CoordinateShow {}
 

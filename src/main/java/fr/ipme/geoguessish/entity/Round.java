@@ -20,15 +20,15 @@ public class Round {
     @JsonView(JsonViews.RoundShow.class)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     @JsonView(JsonViews.RoundMinimalView.class)
     private Integer points;
 
-    @Column(nullable = false)
+    @Column
     @JsonView(JsonViews.RoundMinimalView.class)
     private Integer time;
 
-    @Column(nullable = false)
+    @Column
     @JsonView(JsonViews.RoundMinimalView.class)
     private Long distance;
 
@@ -38,6 +38,7 @@ public class Round {
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonView(JsonViews.RoundShow.class)
     private Coordinate origin;
 
     @ManyToOne
