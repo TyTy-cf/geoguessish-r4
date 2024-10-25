@@ -8,6 +8,7 @@ import fr.ipme.geoguessish.entity.User;
 import fr.ipme.geoguessish.json_views.JsonViews;
 import fr.ipme.geoguessish.security.JwtAuthenticatorService;
 import fr.ipme.geoguessish.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +22,12 @@ public class SecurityRestController {
 
     @PostMapping("/api/register")
     @JsonView(JsonViews.UserShow.class)
-    public User register(@RequestBody RegisterDTO registerDTO) {
+    public User register(@Valid @RequestBody RegisterDTO registerDTO) {
         return userService.register(registerDTO);
     }
 
     @PostMapping("/api/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginDTO loginDTO) {
         return jwtAuthenticatorService.authenticate(loginDTO);
     }
 

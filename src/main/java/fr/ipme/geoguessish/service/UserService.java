@@ -39,6 +39,7 @@ public class UserService implements
         user.setAvatar(registerDTO.getAvatar());
         user.setBirthedAt(registerDTO.getBirthedAt());
         user.setLevel(1);
+        user.setRoles("[\"ROLE_USER\"]");
         user.setCreatedAt(LocalDateTime.now());
         return userRepository.saveAndFlush(user);
     }
