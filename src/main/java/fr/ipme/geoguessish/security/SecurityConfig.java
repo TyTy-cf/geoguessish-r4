@@ -40,7 +40,11 @@ public class SecurityConfig {
                         AntPathRequestMatcher.antMatcher("/swagger-ui/**")
                     ).permitAll()
                     .requestMatchers(
-                        AntPathRequestMatcher.antMatcher("/api/user/**")
+                        AntPathRequestMatcher.antMatcher("/api/user/**"),
+                        AntPathRequestMatcher.antMatcher("/api/map/**"),
+                        AntPathRequestMatcher.antMatcher("/api/game/**"),
+                        AntPathRequestMatcher.antMatcher("/api/coordinate/**"),
+                        AntPathRequestMatcher.antMatcher("/api/round/**")
                     ).authenticated()
                     .requestMatchers(
                         AntPathRequestMatcher.antMatcher("/api/admin/**")

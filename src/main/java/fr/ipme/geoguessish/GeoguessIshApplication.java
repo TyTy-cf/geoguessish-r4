@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootDiscoveryApplication {
+public class GeoguessIshApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootDiscoveryApplication.class, args);
+		SpringApplication.run(GeoguessIshApplication.class, args);
 	}
 
 }

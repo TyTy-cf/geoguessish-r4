@@ -25,11 +25,11 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @JsonView(JsonViews.UserShow.class)
+    @JsonView({JsonViews.UserShow.class, JsonViews.GameMinimalView.class})
     private String id;
 
     @Column(nullable = false)
-    @JsonView(JsonViews.UserShow.class)
+    @JsonView({JsonViews.UserShow.class, JsonViews.GameMinimalView.class})
     private String username;
 
     @Column(nullable = false)
@@ -51,7 +51,7 @@ public class User implements UserDetails {
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    @JsonView(JsonViews.UserShow.class)
+    @JsonView({JsonViews.UserShow.class, JsonViews.GameMinimalView.class})
     private Integer level;
 
     @Column(nullable = false)

@@ -1,5 +1,7 @@
 package fr.ipme.geoguessish.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.ipme.geoguessish.json_views.JsonViews;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -15,18 +17,23 @@ public class Round {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(JsonViews.RoundShow.class)
     private Long id;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.RoundMinimalView.class)
     private Integer points;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.RoundMinimalView.class)
     private Integer time;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.RoundMinimalView.class)
     private Long distance;
 
     @Column(nullable = false)
+    @JsonView(JsonViews.RoundShow.class)
     private LocalDateTime createdAt;
 
     @ManyToOne

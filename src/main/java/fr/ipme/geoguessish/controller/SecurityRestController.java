@@ -1,9 +1,11 @@
 package fr.ipme.geoguessish.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import fr.ipme.geoguessish.custom_response.JwtResponse;
 import fr.ipme.geoguessish.dto.LoginDTO;
 import fr.ipme.geoguessish.dto.RegisterDTO;
 import fr.ipme.geoguessish.entity.User;
+import fr.ipme.geoguessish.json_views.JsonViews;
 import fr.ipme.geoguessish.security.JwtAuthenticatorService;
 import fr.ipme.geoguessish.service.UserService;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ public class SecurityRestController {
     private JwtAuthenticatorService jwtAuthenticatorService;
 
     @PostMapping("/api/register")
+    @JsonView(JsonViews.UserShow.class)
     public User register(@RequestBody RegisterDTO registerDTO) {
         return userService.register(registerDTO);
     }
